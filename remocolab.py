@@ -194,7 +194,7 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
     #shutil.unpack_archive("cloudflared.tgz")
     pathlib.Path("cloudflared").chmod(stat.S_IXUSR)
     cfd_proc = subprocess.Popen(
-        ["./cloudflared", "tunnel", "--url", "ssh://localhost:22", "--logfile", "cloudflared.log", "--metrics", "localhost:49589"],
+        ["cloudflared", "tunnel", "--url", "ssh://localhost:22", "--logfile", "cloudflared.log", "--metrics", "localhost:49589"],
         stdout = subprocess.PIPE,
         universal_newlines = True
         )
